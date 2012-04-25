@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Počítač: localhost
--- Vygenerováno: Čtvrtek 12. dubna 2012, 17:12
+-- Vygenerováno: Středa 18. dubna 2012, 10:20
 -- Verze MySQL: 5.0.77
 -- Verze PHP: 5.2.10
 
@@ -72,6 +72,29 @@ INSERT INTO `pages` (`id`, `parent`, `content`, `ext_script`, `name`, `url`, `me
 -- --------------------------------------------------------
 
 --
+-- Struktura tabulky `php_confirm`
+--
+
+CREATE TABLE IF NOT EXISTS `php_confirm` (
+  `id` int(11) NOT NULL auto_increment,
+  `action` varchar(32) collate utf8_bin NOT NULL,
+  `message` text collate utf8_bin NOT NULL,
+  `confirm` tinyint(4) NOT NULL,
+  `alert` tinyint(4) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+
+--
+-- Vypisuji data pro tabulku `php_confirm`
+--
+
+INSERT INTO `php_confirm` (`id`, `action`, `message`, `confirm`, `alert`) VALUES
+(1, 'delete', 0x3c63656e7465723e41726520796f752073757265207468617420796f752077616e742064656c657465207468697320656e7472793f3c6272202f3e3c6272202f3e3c7374726f6e673e40236e616d6523403c2f7374726f6e673e3c2f63656e7465723e, 1, 0),
+(2, 'alert', 0x50726f6a6563742077617320737563636566756c792064656c657465642e, 0, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabulky `projects`
 --
 
@@ -82,12 +105,14 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `last_update` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `company_id` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=35 ;
 
 --
 -- Vypisuji data pro tabulku `projects`
 --
 
+INSERT INTO `projects` (`id`, `name`, `archived`, `last_update`, `company_id`) VALUES
+(34, 'Project 1', 0, '2012-04-17 16:29:15', 0);
 
 -- --------------------------------------------------------
 
@@ -117,12 +142,25 @@ CREATE TABLE IF NOT EXISTS `rc_modules` (
   `name` varchar(128) collate utf8_bin NOT NULL,
   `project_id` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=24 ;
 
 --
 -- Vypisuji data pro tabulku `rc_modules`
 --
 
+INSERT INTO `rc_modules` (`id`, `name`, `project_id`) VALUES
+(6, 'sdasd', 1),
+(7, 'asdfsd', 1),
+(4, 'test', 22),
+(8, 'dsfd', 1),
+(9, 'asdfsd', 1),
+(11, 'sdfsdf', 10),
+(12, 'rdff', 10),
+(13, 'rdff', 10),
+(20, 'Weather', 34),
+(19, 'RSS feed', 34),
+(21, 'Tracks', 34),
+(22, 'Results', 34);
 
 -- --------------------------------------------------------
 

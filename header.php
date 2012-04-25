@@ -26,10 +26,17 @@
 	<![endif]-->
 </head>
 <body id="page3">
+
 <?
+$page = explode("_",$_GET[page]);
+$page_id = $page[0];
+$page = $page[1];
+
 $$_GET[page] = " active";
 
 ?>
+<div style="">
+
 
 <!--==============================header=================================-->
     <header>

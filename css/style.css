@@ -783,6 +783,26 @@ div#contact_form .download-box {
   width: 200px;
 }
 
+.confirm_button {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #1a1a1a;
+  width: 100px;
+  color: #313231;
+  background-image: linear-gradient(bottom, rgb(221,221,221) 0%, rgb(241,241,241) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(221,221,221) 0%, rgb(241,241,241) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(221,221,221) 0%, rgb(241,241,241) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(221,221,221) 0%, rgb(241,241,241) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(221,221,221) 0%, rgb(241,241,241) 100%);
+}
+
+.confirm_button:hover {
+  background-image: linear-gradient(bottom, rgb(196,195,195) 0%, rgb(215,214,214) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(196,195,195) 0%, rgb(215,214,214) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(196,195,195) 0%, rgb(215,214,214) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(196,195,195) 0%, rgb(215,214,214) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(196,195,195) 0%, rgb(215,214,214) 100%);
+}
 /****************************footer************************/
 footer {
 	width:100%; 

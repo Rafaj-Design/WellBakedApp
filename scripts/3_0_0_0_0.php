@@ -5,9 +5,71 @@
           <div id='content_container'>
             <table style='margin-top: 10px;'>
               <tr>
-                <td colspan='3'><strong>Project name / Remote config / RSS feed / Versions</strong></td>
-              </tr>
-              <tr>
+                <td colspan='3'><strong>";
+    $query = "SELECT * FROM projects WHERE id = '".$_GET[project_id]."'";
+    $result = mysql_query($query);
+    if ($result)
+      {
+        $num_results = mysql_num_rows($result);
+        if ($num_results > "0")
+          {
+            for ($i=0; $i <$num_results; $i++)
+              {
+                $row = mysql_fetch_array($result);
+                echo $row[name];
+              }
+          }
+      }
+    echo "&nbsp;/&nbsp;Remote config&nbsp;/&nbsp;"; 
+    $query = "SELECT * FROM rc_modules WHERE id = '".$_GET[module_id]."'";
+    $result = mysql_query($query);
+    if ($result)
+      {
+        $num_results = mysql_num_rows($result);
+        if ($num_results > "0")
+          {
+            for ($i=0; $i <$num_results; $i++)
+              {
+                $row = mysql_fetch_array($result);
+                $module_name = $row[name];
+                echo $row[name];
+              }
+          }
+      }
+    echo          " / Versions</strong></td>
+              </tr>";
+    $query = "SELECT * FROM rc_modules_vers WHERE module_id = '".$_GET[module_id]."'";
+    $result = mysql_query($query);
+    if ($result)
+      {
+        $num_results = mysql_num_rows($result);
+        if ($num_results > "0")
+          {
+            for ($i=0; $i <$num_results; $i++)
+              {
+                $row = mysql_fetch_array($result);
+                echo $row[name];
+                if ($row[min_ver]=="")
+                  {
+                    $row[min_ver] = "0";
+                  }
+                if ($row[maj_ver]=="")
+                  {
+                    $row[maj_ver] = "0";
+                  }
+                echo "<tr>
+                        <td style='width: 350px;'>".$module_name." v".$row[maj_ver].".".$row[min_ver]."</td>
+                        <td><button onclick='alert(\"Confirmation for deleting module version and then deleting of module version.\");'>Delete</button></td>
+                        <td><a href='?page=2_projects&amp;script=3_0_0_0_0_0'><button>Edit</button></a></td>
+                        <td><button onclick='alert(\"Will publish JSON of this version and change status to Live.\");'>Publish</button></td>
+                      </tr>";
+
+              }
+          }
+      }
+
+
+    echo "    <tr>
                 <td style='width: 350px;'>RSS feed v1</td>
                 <td><button onclick='alert(\"Confirmation for deleting module version and then deleting of module version.\");'>Delete</button></td>
                 <td><a href='?page=2_projects&amp;script=3_0_0_0_0_0'><button>Edit</button></a></td>
