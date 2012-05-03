@@ -144,5 +144,125 @@ function php_confirm($php_config_id, $id, $table_name, $yes_no)
           }
       }
   }
+/*
+function gen_json($name, $value, $type, $carka)
+  {
+    $query = "SELECT * FROM ";
+
+    if ($type == "1")
+      {
+        $json = json_encode($name);
+      }
+    echo $json;
+  }
+*/
+function gen_json2($ver_id, $parent, $tab)
+  {
+    if ($parent == "")
+      {
+        $parent = "0";
+      }
+    if ($tab == "")
+      {
+        $tab = "0";
+      }
+    else
+      {
+        $json .= ",";
+      }
+    $tab++;
+    $query = "SELECT * FROM rc_modules_vers_jsons WHERE parent = '".$parent."' AND version_id = '".$ver_id."' ORDER BY 'order'";
+//echo $query;
+    $result = mysql_query($query);
+    if ($result)
+      {
+        $num_results = mysql_num_rows($result);
+        if ($num_results > "0")
+          {
+            for ($i=0; $i <$num_results; $i++)
+              {
+                $row = mysql_fetch_array($result);
+                if ($row[type] == "1")
+                  {
+                    tab($tab);
+                    echo json_encode($row[name]).":";
+                    echo "&nbsp;&nbsp;<a style='margin-left: 50px;' href='index.php?page=".$_GET[page]."&amp;project_id=".$_GET[project_id]."&amp;module_id=".$_GET[module_id]."&amp;company_id=".$_GET[company_id]."&amp;ver_id=".$_GET[ver_id]."&amp;script=".$_GET[script]."&amp;json_id=".$row[id]."&amp;action=change' title='\"x\": {...}'>Rename</a>";
+                    echo "&nbsp;&nbsp;<a href='index.php?page=".$_GET[page]."&amp;project_id=".$_GET[project_id]."&amp;module_id=".$_GET[module_id]."&amp;company_id=".$_GET[company_id]."&amp;ver_id=".$_GET[ver_id]."&amp;script=".$_GET[script]."&amp;json_id=".$row[id]."&amp;action=delete'>Delete</a>";
+                    echo "<br />";
+                    tab($tab);
+                    echo "&nbsp;&nbsp;&nbsp;{";
+                    echo "&nbsp;&nbsp;<a style='margin-left: 50px;' href='index.php?page=".$_GET[page]."&amp;project_id=".$_GET[project_id]."&amp;module_id=".$_GET[module_id]."&amp;company_id=".$_GET[company_id]."&amp;ver_id=".$_GET[ver_id]."&amp;script=".$_GET[script]."&amp;json_id=".$row[id]."&amp;action=add_object' title='\"x\": {...}'>+ Object</a>";
+                    echo "&nbsp;&nbsp;<a href='index.php?page=".$_GET[page]."&amp;project_id=".$_GET[project_id]."&amp;module_id=".$_GET[module_id]."&amp;company_id=".$_GET[company_id]."&amp;ver_id=".$_GET[ver_id]."&amp;script=".$_GET[script]."&amp;json_id=".$row[id]."&amp;action=add_array' title='\"x\": [{...},{...}]'>+ Array</a>";
+                    echo "&nbsp;&nbsp;<a href='index.php?page=".$_GET[page]."&amp;project_id=".$_GET[project_id]."&amp;module_id=".$_GET[module_id]."&amp;company_id=".$_GET[company_id]."&amp;ver_id=".$_GET[ver_id]."&amp;script=".$_GET[script]."&amp;json_id=".$row[id]."&amp;action=add_string' title='\"x\": \"y\"'>+ String</a>";
+                    echo "<br />";
+                    gen_json2($ver_id, $row[id], $tab);
+                    tab($tab);
+                    echo "&nbsp;&nbsp;&nbsp;}";
+                    if ($i < $num_results-1)
+                      {
+                        echo ",";
+                      }
+                    echo "<br />";
+                  }
+                if ($row[type] == "2")
+                  {
+                    tab($tab);
+                    echo json_encode($row[name]).":";
+                    echo "&nbsp;&nbsp;<a style='margin-left: 50px;' href='index.php?page=".$_GET[page]."&amp;project_id=".$_GET[project_id]."&amp;module_id=".$_GET[module_id]."&amp;company_id=".$_GET[company_id]."&amp;ver_id=".$_GET[ver_id]."&amp;script=".$_GET[script]."&amp;json_id=".$row[id]."&amp;action=change' title='\"x\": {...}'>Rename</a>";
+                    echo "&nbsp;&nbsp;<a href='index.php?page=".$_GET[page]."&amp;project_id=".$_GET[project_id]."&amp;module_id=".$_GET[module_id]."&amp;company_id=".$_GET[company_id]."&amp;ver_id=".$_GET[ver_id]."&amp;script=".$_GET[script]."&amp;json_id=".$row[id]."&amp;action=delete'>Delete</a>";
+                    echo "<br />";
+                    tab($tab);
+                    echo "[";
+                    echo "<br />";
+                    tab($tab);
+                    echo "&nbsp;&nbsp;&nbsp;{";
+                    echo "<br />";
+                    gen_json2($ver_id, $row[id], $tab);
+                    tab($tab);
+                    echo "&nbsp;&nbsp;&nbsp;}";
+                    echo "<br />";
+                    tab($tab);
+                    echo "]";
+                    if ($i < $num_results-1)
+                      {
+                        echo ",";
+                      }
+                    echo "<br />";
+                  }
+                if ($row[type] == "3")
+                  {
+                    tab($tab);
+                    echo json_encode($row[name]).":".json_encode($row[value]);
+                    if ($i < $num_results-1)
+                      {
+                        echo ",";
+                      }
+                    echo "&nbsp;&nbsp;<a style='margin-left: 50px;' href='index.php?page=".$_GET[page]."&amp;project_id=".$_GET[project_id]."&amp;module_id=".$_GET[module_id]."&amp;company_id=".$_GET[company_id]."&amp;ver_id=".$_GET[ver_id]."&amp;script=".$_GET[script]."&amp;json_id=".$row[id]."&amp;action=change'>Rename key / Change Value</a>";
+                    echo "&nbsp;&nbsp;<a href='index.php?page=".$_GET[page]."&amp;project_id=".$_GET[project_id]."&amp;module_id=".$_GET[module_id]."&amp;company_id=".$_GET[company_id]."&amp;ver_id=".$_GET[ver_id]."&amp;script=".$_GET[script]."&amp;json_id=".$row[id]."&amp;action=delete'>Delete</a>";
+                    echo "<br />";
+                  }
+              }
+          }
+      }
+  }
+
+function gen_json($ver_id, $parent)
+  {
+    echo "{";
+                    echo "<br />";
+    gen_json2($ver_id, $parent, "");
+    echo "}";
+  }
+
+function tab($m)
+  {
+    if ($m > 0)
+      {
+        for ($i=0; $i <$m; $i++)
+          {
+            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+          }
+      }
+  }
 
 ?>

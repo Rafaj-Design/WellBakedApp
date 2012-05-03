@@ -1,8 +1,25 @@
 <?
     echo "<div id='left_menu'>";
     include("pages/left_menu.php");
+
     echo "</div>
           <div id='content_container'>
+            
+            <div style='width: 450px; min-height: 150px; padding: 10px; border-radius: 15px; background-color: #f8f1e4; border: 1px solid #dcd3c2;'>";
+echo "<br /><br />";
+
+
+//gen_json($name, $value, $type, $carka)
+gen_json($_GET[ver_id], "");
+echo "<br /><br />";
+
+//echo $json;
+    echo "  </div>
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
             <table style='margin-top: 10px;'>
               <tr>
                 <td colspan='3'><strong>Project name / Remote config / RSS feed / v4</strong></td>

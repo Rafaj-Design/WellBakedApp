@@ -22,7 +22,7 @@ $_GET[company_id] = "1";
 if (isset($_GET[action]) AND $_GET[action] == "delete" AND isset($_GET[id]) AND $_GET[id] != "" AND isset($_GET[confirmed]) AND $_GET[confirmed]=="1")
   {
 
-    $query = "SELECT name FROM projects WHERE id = '".$_GET[id]."' AND company_id = '"$_GET[company_id]"'";
+    $query = "SELECT name FROM projects WHERE id = '".$_GET[id]."' AND company_id = '".$_GET[company_id]."'";
     $result = mysql_query($query);
     if ($result)
       {

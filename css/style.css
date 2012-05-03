@@ -803,6 +803,14 @@ div#contact_form .download-box {
   background-image: -webkit-linear-gradient(bottom, rgb(196,195,195) 0%, rgb(215,214,214) 100%);
   background-image: -ms-linear-gradient(bottom, rgb(196,195,195) 0%, rgb(215,214,214) 100%);
 }
+
+.ver_staging {
+  background-color: #ffff80;
+}
+
+.ver_live {
+  background-color: lightgreen;
+}
 /****************************footer************************/
 footer {
 	width:100%; 
