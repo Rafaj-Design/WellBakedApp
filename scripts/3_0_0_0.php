@@ -102,7 +102,9 @@ echo "        <tr>
 echo "</form>";
 echo "      </table>
             <div style='width: 70%; text-align: center;'>
-              <br /><a href='?page=2_projects&amp;script=3_0b'><button>Back</button></a>
+              <br />";
+back("3_0b");              
+    echo "
             </div>
           </div>
           <div class='clear'>

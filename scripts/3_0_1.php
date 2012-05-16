@@ -35,7 +35,9 @@ if ($result)
               </tr>
             </table>
             <div style='width: 70%; text-align: center;'>
-              <br /><a href='?page=".$_GET[page]."&amp;script=3_0b&amp;id=".$_GET[id]."&amp;project_id=".$_GET[project_id]."&amp;company_id=".$_GET[company_id]."'><button>Back</button></a></td>
+              <br />";
+back("3_0b");              
+    echo "</td>
             </div>
           </div>
           <div class='clear'>

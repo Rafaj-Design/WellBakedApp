@@ -159,7 +159,7 @@ echo "        <tr>
               </form>
             </table>
             <div style='width: 70%; text-align: center;'>
-              <br /><a href='?page=2_projects&amp;script=3_0_1'><button>Back</button></a>
+              <br />";echo back('3_0_1'); echo "
             </div>
           </div>
           <div class='clear'>

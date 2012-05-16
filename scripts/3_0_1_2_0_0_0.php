@@ -162,7 +162,7 @@ echo "        <tr>
 echo "
             </table>
             <div style='width: 70%; text-align: center;'>
-              <br /><a href='?page=2_projects&amp;script=3_0_1_2_0_0'><button>Back</button></a>
+              <br />"; back('3_0_1_2_0_0'); echo "
             </div>
           </div>
           <div class='clear'>

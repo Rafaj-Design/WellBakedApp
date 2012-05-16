@@ -265,4 +265,9 @@ function tab($m)
       }
   }
 
+function back($script)
+  {
+    echo "<a href='?page=".$_GET[page]."&amp;script=".$script."&amp;id=".$row[id]."&amp;project_id=".$_GET[project_id]."&amp;company_id=".$_GET[company_id]."&amp;category_id=".$_GET[category_id]."&amp;lang_id=".$_GET[lang_id]."&amp;lang_id_id=".$_GET[lang_id_id]."&amp;ver_id=".$_GET[ver_id]."'><button>Back</button></a>";
+  }
+
 ?>

@@ -273,7 +273,7 @@ if (isset($_GET[action]) AND ($_GET[action]=="add_minor" OR $_GET[action]=="add_
               </tr>
             </table>
             <div style='width: 100%; text-align: center;'>
-              <br /><a href='?page=2_projects&amp;script=3_0_1_1_0'><button>Back</button></a>
+              <br />"; back('3_0_1_1_0'); echo "
             </div>
           </div>
           <div class='clear'>

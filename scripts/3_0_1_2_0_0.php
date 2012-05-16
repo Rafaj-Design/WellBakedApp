@@ -43,7 +43,7 @@ if ($result)
                 $row = mysql_fetch_array($result);
                 echo "<tr>
                         <td style='width: 350px;'>".$row[name]."</td>
-                        <td><a href='?page=".$_GET[page]."&amp;script=3_0_1_2_0_0_0&amp;company=".$_GET[company]."&amp;project_id=".$_GET[project_id]."&amp;lang_id=".$_GET[lang_id]."&amp;lang_id_id=".$_GET[lang_id_id]."&amp;category_id=".$row[id]."'><button>Edit</button></a></td>
+                        <td><a href='?page=".$_GET[page]."&amp;script=3_0_1_2_0_0_0&amp;company_id=".$_GET[company_id]."&amp;project_id=".$_GET[project_id]."&amp;lang_id=".$_GET[lang_id]."&amp;lang_id_id=".$_GET[lang_id_id]."&amp;category_id=".$row[id]."'><button>Edit</button></a></td>
                       </tr>";
 
               }      
@@ -57,7 +57,7 @@ if ($result)
       }
     echo   "</table>
             <div style='width: 70%; text-align: center;'>
-              <br /><a href='?page=2_projects&amp;script=3_0_1_2_0'><button>Back</button></a>
+              <br />"; back('3_0_1_2_0'); echo "
             </div>
           </div>
           <div class='clear'>

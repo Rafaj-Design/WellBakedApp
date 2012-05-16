@@ -58,8 +58,8 @@ if (isset($_GET[action]) AND $_GET[action]=="delete" AND $_GET[id]!="" AND isset
                 echo "<tr>
                         <td>".$row[name]."</td>
                         <td>".$row[lang_id]."</td>
-                        <td><a href='?page=".$_GET[page]."&amp;script=3_0_1_2_0&amp;company=".$_GET[company]."&amp;project_id=".$_GET[project_id]."&amp;id=".$row[id]."&amp;action=delete&amp;alert=1&amp;php_config_id=1&amp;yes_no=Yes|No&amp;table_name=lang_def_lang_set'><button>Delete</button></a></td>
-                        <td><a href='?page=".$_GET[page]."&amp;script=3_0_1_2_0_0&amp;company=".$_GET[company]."&amp;project_id=".$_GET[project_id]."&amp;lang_id=".$row[lang_id]."&amp;lang_id_id=".$row[id]."'><button>Edit</button></a></td>
+                        <td><a href='?page=".$_GET[page]."&amp;script=3_0_1_2_0&amp;company_id=".$_GET[company_id]."&amp;project_id=".$_GET[project_id]."&amp;id=".$row[id]."&amp;action=delete&amp;alert=1&amp;php_config_id=1&amp;yes_no=Yes|No&amp;table_name=lang_def_lang_set'><button>Delete</button></a></td>
+                        <td><a href='?page=".$_GET[page]."&amp;script=3_0_1_2_0_0&amp;company_id=".$_GET[company_id]."&amp;project_id=".$_GET[project_id]."&amp;lang_id=".$row[lang_id]."&amp;lang_id_id=".$row[id]."'><button>Edit</button></a></td>
                       </tr>";
               }      
           }
@@ -73,7 +73,7 @@ if (isset($_GET[action]) AND $_GET[action]=="delete" AND $_GET[id]!="" AND isset
               </tr>
 */
     echo "    <tr>
-                <form action='?page=".$_GET[page]."&amp;script=".$_GET[script]."&amp;company=".$_GET[company]."&amp;project_id=".$_GET[project_id]."' method='post'>
+                <form action='?page=".$_GET[page]."&amp;script=".$_GET[script]."&amp;company_id=".$_GET[company_id]."&amp;project_id=".$_GET[project_id]."' method='post'>
                   <td>";fastform('text', 'name', 'Language');echo "</td>
                   <td>";fastform('text', 'lang_id', 'Language ID');echo "</td>
                   <td><button type='submit' name='action' value='add_other_lang'>Save</button></td>
@@ -82,7 +82,7 @@ if (isset($_GET[action]) AND $_GET[action]=="delete" AND $_GET[id]!="" AND isset
               </tr>
             </table>
             <div style='width: 70%; text-align: center;'>
-              <br /><a href='?page=2_projects&amp;script=3_0_1'><button>Back</button></a>
+              <br />"; back('3_0_1'); echo "
             </div>
           </div>
           <div class='clear'>

@@ -22,11 +22,11 @@ if ($result)
                 <td colspan='2'><strong>".$row[name]."</strong></td>
               <tr>
                 <td style='width: 350px;'>Remote config</td>
-                <td><a href='?page=2_projects&amp;script=3_0_0_0&amp;id=".$_GET[id]."&amp;project_id=".$_GET[id]."&amp;company_id=".$_GET[company_id]."'><button>Edit</button></a></td>
+                <td><a href='?page=2_projects&amp;script=3_0_0_0&amp;id=".$_GET[id]."&amp;project_id=".$_GET[project_id]."&amp;company_id=".$_GET[company_id]."'><button>Edit</button></a></td>
               </tr>
               <tr>
                 <td style='width: 350px;'>Translations</td>
-                <td><a href='?page=2_projects&amp;script=3_0_1&amp;id=".$_GET[id]."&amp;project_id=".$_GET[id]."&amp;company_id=".$_GET[company_id]."'><button>Edit</button></a></td>
+                <td><a href='?page=2_projects&amp;script=3_0_1&amp;id=".$_GET[id]."&amp;project_id=".$_GET[project_id]."&amp;company_id=".$_GET[company_id]."'><button>Edit</button></a></td>
               </tr>
               <tr>
                 <td style='width: 350px;'>Killswitch</td>
@@ -34,7 +34,9 @@ if ($result)
               </tr>
             </table>
             <div style='width: 70%; text-align: center;'>
-              <br /><a href='?page=2_projects&amp;script=3_0a'><button>Back</button></a>
+              <br />";
+back("3_0a");              
+    echo "
             </div>
           </div>
           <div class='clear'>
